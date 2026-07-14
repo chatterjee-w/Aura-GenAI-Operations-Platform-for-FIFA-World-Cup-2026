@@ -1,0 +1,22 @@
+{
+  "name": "aura-project",
+  "version": "1.0.0",
+  "description": "FIFA Nexus GenAI Operations Platform",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "globals": "^15.0.0",
+    "jsdom": "^24.0.0",
+    "vitest": "^2.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIFA Nexus — GenAI Operations Platform | FIFA World Cup 2026</title>
+  <meta name="description"
+    content="FIFA Nexus is the multimodal GenAI copilot for FIFA World Cup 2026 — one system powering wayfinding, crowd management, accessibility, transportation, and real-time operations across 16 host cities and 11 stadiums using generative simulation, LLM-based translation, and predictive modeling.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline';">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='12' fill='%2300D26A'/></svg>">
+</head>
+
+<body>
+  <!-- Custom Cursor -->
+  <div class="aura-cursor" id="aura-cursor" aria-hidden="true"></div>
+  <a href="#hero" class="skip-to-content">Skip to content</a>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo" aria-label="FIFA Nexus — Home">
+        <span class="nav__logo-dot" aria-hidden="true"></span>
+        NEXUS
+      </a>
+      <ul class="nav__links" id="nav-links" role="list">
+        <li><a href="#wayfinding" class="nav__link">Wayfinding</a></li>
+        <li><a href="#crowd" class="nav__link">Crowd Mgmt</a></li>
+        <li><a href="#accessibility" class="nav__link">Accessibility</a></li>
+        <li><a href="#transport" class="nav__link">Transport</a></li>
+        <li><a href="#sustainability" class="nav__link">Sustainability</a></li>
+        <li><a href="#multilingual" class="nav__link">Multilingual</a></li>
+        <li><a href="#ops" class="nav__link">Ops Center</a></li>
+        <li><a href="#impact" class="nav__link">Impact</a></li>
+      </ul>
+      <button class="nav__mobile-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero section" id="hero">
+    <div class="hero__bg" aria-hidden="true">
+      <canvas id="hero-canvas"></canvas>
+    </div>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="pulse-line" aria-hidden="true"></div>
+    <div class="pulse-line pulse-line--bottom pulse-line--blue" aria-hidden="true"></div>
+    <div class="hero__content">
+      <div class="hero__badge reveal">
+        <span class="hero__badge-dot" aria-hidden="true"></span>
+        FIFA World Cup 2026™ — Operations Intelligence
+      </div>
+      <h1 class="heading-display hero__title reveal reveal-delay-1">
+        One AI.<br>
+        <span class="gradient-text">Sixteen Cities.</span><br>
+        Every Fan.
+      </h1>
+      <p class="hero__subtitle reveal reveal-delay-2">
+        FIFA Nexus is the multimodal GenAI copilot woven through every layer of stadium operations — a single
+        intelligence with different faces for fans, volunteers, organizers, and venue staff, running live across the
+        United States, Mexico, and Canada.
+      </p>
+      <div class="stat-strip reveal reveal-delay-3" role="list" aria-label="World Cup statistics">
+        <div class="stat-strip__item" role="listitem">
+          <span class="stat-strip__number" data-count="16">0</span>
+          <span class="stat-strip__label">Host Cities</span>
+        </div>
+        <span class="stat-strip__divider" aria-hidden="true"></span>
+        <div class="stat-strip__item" role="listitem">
+          <span class="stat-strip__number" data-count="48">0</span>
+          <span class="stat-strip__label">Teams</span>
+        </div>
+        <span class="stat-strip__divider" aria-hidden="true"></span>
+        <div class="stat-strip__item" role="listitem">
+          <span class="stat-strip__number" data-count="104">0</span>
+          <span class="stat-strip__label">Matches</span>
+        </div>
+        <span class="stat-strip__divider" aria-hidden="true"></span>
+        <div class="stat-strip__item" role="listitem">
+          <span class="stat-strip__number" data-count="11">0</span>
+          <span class="stat-strip__label">Stadiums</span>
+        </div>
+        <span class="stat-strip__divider" aria-hidden="true"></span>
+        <div class="stat-strip__item" role="listitem">
+          <span class="stat-strip__number" data-count="5" data-suffix="M+">0</span>
+          <span class="stat-strip__label">Expected Fans</span>
+        </div>
+      </div>
+      <div class="hero__cta reveal reveal-delay-4">
+        <button class="hero__cta-btn" id="hero-cta">
+          <span class="hero__cta-pulse" aria-hidden="true"></span>
+          Launch Live Demo ↓
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HOW AURA USES GENAI EXPLAINER
+       ============================================================ -->
+  <section class="section explainer" id="genai-explainer" style="background: rgba(14, 21, 37, 0.4); padding: 40px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <h2 class="heading-section" style="font-size: 1.5rem; margin-bottom: 16px;">How Aura Uses GenAI</h2>
+        <p class="text-body" style="font-size: 1.1rem; color: #8B9DC3;">
+          Aura relies on <strong>multimodal generation</strong> for dynamic interface creation, <strong>generative simulation</strong> for predictive crowd modeling, and <strong>LLM-based translation</strong> for real-time multilingual assistance. All capabilities run via <strong>real-time inference</strong> at the edge to personalize the stadium experience dynamically.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WAYFINDING & NAVIGATION
+       ============================================================ -->
+  <div class="scan-line-divider"></div>
+  <section class="section" id="wayfinding">
+    <div class="pulse-line pulse-line--blue" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label label--blue">
+          <span aria-hidden="true">◈</span> Module 01
+        </span>
+        <h2 class="heading-section">LLM-based Routing &amp; Navigation</h2>
+        <p class="text-body">
+          Your 24/7 AI agent utilizes generative predictive modeling to generate personalized routes from transit hub to seat — adapting in real time to gate
+          changes, crowd density, and individual accessibility needs across venues from MetLife Stadium in New Jersey to
+          Estadio Azteca in Mexico City.
+        </p>
+      </div>
+      <div class="wayfinding__grid">
+        <div class="wayfinding__map-container reveal" role="img"
+          aria-label="Interactive stadium route map showing AI-generated paths from multiple origin points to seats">
+          <canvas id="wayfinding-canvas"></canvas>
+          <div class="wayfinding__origins" role="group" aria-label="Select starting point">
+            <button class="wayfinding__origin-btn active" data-origin="parkingC" aria-pressed="true">
+              <span class="wayfinding__origin-dot wayfinding__origin-dot--parking" aria-hidden="true"></span>
+              Parking Lot C
+            </button>
+            <button class="wayfinding__origin-btn" data-origin="metro" aria-pressed="false">
+              <span class="wayfinding__origin-dot wayfinding__origin-dot--metro" aria-hidden="true"></span>
+              Metro Exit
+            </button>
+            <button class="wayfinding__origin-btn" data-origin="accessible" aria-pressed="false">
+              <span class="wayfinding__origin-dot wayfinding__origin-dot--accessible" aria-hidden="true"></span>
+              Accessible Drop-off
+            </button>
+          </div>
+          <div class="wayfinding__eta-badge" id="wayfinding-eta">
+            <div class="wayfinding__eta-label">Est. Walk Time</div>
+            <div class="wayfinding__eta-value" id="wayfinding-eta-value">9 min</div>
+          </div>
+          <div class="wayfinding__controls">
+            <button class="wayfinding__btn-reroute" id="wayfinding-reroute-btn" aria-pressed="false">
+              <span aria-hidden="true">⚠</span> Simulate Congestion
+            </button>
+          </div>
+          <div class="wayfinding__tooltip" id="wayfinding-tooltip" aria-hidden="true">
+            <div class="wayfinding__tooltip-title" id="wayfinding-tooltip-title"></div>
+            <div class="wayfinding__tooltip-desc" id="wayfinding-tooltip-desc"></div>
+          </div>
+          <div class="wayfinding__steps-panel" id="wayfinding-steps">
+            <div class="wayfinding__step" data-step="0">
+              <div class="wayfinding__step-num">01</div>
+              <div class="wayfinding__step-desc">Enter Gate A</div>
+            </div>
+            <div class="wayfinding__step" data-step="1">
+              <div class="wayfinding__step-num">02</div>
+              <div class="wayfinding__step-desc">Proceed to Ramp 3</div>
+            </div>
+            <div class="wayfinding__step" data-step="2">
+              <div class="wayfinding__step-num">03</div>
+              <div class="wayfinding__step-desc">Arrive at Sec 214</div>
+            </div>
+          </div>
+        </div>
+        <div class="wayfinding__features">
+          <div class="card reveal reveal-delay-1">
+            <div class="card__icon card__icon--blue" aria-hidden="true">📍</div>
+            <h3 class="card__title">Turn-by-Turn Stadium Navigation</h3>
+            <p class="card__text">
+              Nexus generates step-by-step directions from any entry point to your seat, food court, or restroom —
+              adapting live to concourse closures and crowd conditions. Uses BLE beacon triangulation (±1.2m accuracy)
+              across all 11 venues.
+            </p>
+          </div>
+          <div class="card reveal reveal-delay-2">
+            <div class="card__icon card__icon--green" aria-hidden="true">🏙️</div>
+            <h3 class="card__title">Host City Routes</h3>
+            <p class="card__text">
+              Beyond the stadium: personalized walking routes from fan zones, hotels, and transit stations in all 16
+              host cities. Integrates with local transit APIs (MTA, DART, STM, STC Metro) to show real-time departure
+              options.
+            </p>
+          </div>
+          <div class="wayfinding__stat-row reveal reveal-delay-3">
+            <div class="stat-box">
+              <div class="stat-box__value" data-count="9" data-suffix=" min">0</div>
+              <div class="stat-box__label">Average time-to-seat (simulated)</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-box__value" data-count="59" data-suffix="%">0</div>
+              <div class="stat-box__label">Reduction vs. unassisted wayfinding</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CROWD MANAGEMENT
+       ============================================================ -->
+  <div class="scan-line-divider"></div>
+  <section class="section" id="crowd">
+    <div class="pulse-line pulse-line--gold" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label label--gold">
+          <span aria-hidden="true">◈</span> Module 02
+        </span>
+        <h2 class="heading-section">Interactive Vibe Map</h2>
+        <p class="text-body">
+          Real-time crowd density metrics using generative simulation — Nexus models pedestrian flow across concourses,
+          gates, and exits, detecting potential bottlenecks 12 minutes before they form and rerouting foot traffic
+          through alternate paths.
+        </p>
+      </div>
+      <div class="crowd__grid">
+        <div class="crowd__heatmap-container reveal" role="img"
+          aria-label="Animated crowd density heatmap of stadium concourses showing real-time congestion levels">
+          <canvas id="heatmap-canvas" width="600" height="450"></canvas>
+          <div id="heatmap-overlay" class="crowd__reroute-overlay" aria-live="polite">
+            <button class="crowd__reroute-close" aria-label="Close suggestion">✕</button>
+            <div class="crowd__reroute-title">
+              <span class="dashboard__status-dot"
+                style="background:var(--color-gold);box-shadow:0 0 8px var(--color-gold-glow);"
+                aria-hidden="true"></span>
+              AI Rerouting Active
+            </div>
+            <div class="crowd__reroute-text" id="heatmap-overlay-text">High density predicted in this zone. Rerouting
+              34% of foot traffic via Ramp 4.</div>
+          </div>
+          <div class="crowd__heatmap-legend" aria-label="Heatmap legend">
+            <div class="crowd__heatmap-legend-item">
+              <span class="crowd__heatmap-legend-dot" style="background:#00D26A;" aria-hidden="true"></span>
+              Low (&lt;40%)
+            </div>
+            <div class="crowd__heatmap-legend-item">
+              <span class="crowd__heatmap-legend-dot" style="background:#FFB800;" aria-hidden="true"></span>
+              Moderate (40–70%)
+            </div>
+            <div class="crowd__heatmap-legend-item">
+              <span class="crowd__heatmap-legend-dot" style="background:#FF4D6A;" aria-hidden="true"></span>
+              High (&gt;70%)
+            </div>
+          </div>
+          <div class="crowd__heatmap-time" id="heatmap-time" aria-live="polite">
+            T-45:00 — Gates Open
+          </div>
+          <div class="heatmap__phase-selector" role="group" aria-label="Select heatmap time phase">
+            <button class="heatmap__phase-btn active" data-phase="0">Gates Open</button>
+            <button class="heatmap__phase-btn" data-phase="1">Pre-Match</button>
+            <button class="heatmap__phase-btn" data-phase="2">1st Half</button>
+            <button class="heatmap__phase-btn" data-phase="3">Halftime</button>
+            <button class="heatmap__phase-btn" data-phase="4">2nd Half</button>
+            <button class="heatmap__phase-btn" data-phase="5">Post-Match</button>
+            <button class="heatmap__phase-btn heatmap__phase-btn--resume" id="heatmap-resume" style="display:none;">▶
+              Auto</button>
+          </div>
+          <div class="heatmap__scrubber" role="group" aria-label="Drag to scrub through match timeline">
+            <span class="heatmap__scrubber-label">Timeline</span>
+            <input type="range" min="0" max="500" value="0" class="heatmap__scrubber-input" id="heatmap-scrubber"
+              aria-label="Scrub match timeline">
+            <span class="heatmap__scrubber-time" id="heatmap-scrubber-time">T-45:00</span>
+          </div>
+          <div class="heatmap__zone-tooltip" id="heatmap-zone-tooltip" aria-hidden="true">
+            <div class="heatmap__zone-tooltip-title">
+              <span class="heatmap__zone-tooltip-density" id="tooltip-density"></span>
+              <span id="tooltip-zone-name"></span>
+            </div>
+            <div class="heatmap__zone-tooltip-suggestion" id="tooltip-suggestion"></div>
+          </div>
+        </div>
+        <div>
+          <div class="card reveal reveal-delay-1">
+            <div class="card__icon card__icon--gold" aria-hidden="true">📊</div>
+            <h3 class="card__title">Live Crowd Density Metrics</h3>
+            <p class="card__text">
+              Using generative adversarial simulation trained on 340+ historical match-day crowd datasets, Nexus
+              predicts congestion at every choke point — gate queues, concourse intersections, restroom corridors, and
+              exit ramps. The model runs 60-second lookahead cycles continuously from gates-open through stadium
+              clearance.
+            </p>
+          </div>
+          <div class="card reveal reveal-delay-2" style="margin-top:var(--space-6)">
+            <div class="card__icon card__icon--blue" aria-hidden="true">🔄</div>
+            <h3 class="card__title">Dynamic Rerouting</h3>
+            <p class="card__text">
+              When predicted density in a concourse zone exceeds 70% capacity, Nexus triggers rerouting: digital signage
+              redirects, push notifications to nearby fans, and staff walkie-talkie alerts — all within 8 seconds.
+              Reroutes 34% of foot traffic through alternate paths in live simulation testing.
+            </p>
+          </div>
+          <div class="crowd__metrics reveal reveal-delay-3">
+            <div class="stat-box">
+              <div class="stat-box__value" data-count="12" data-suffix=" min">0</div>
+              <div class="stat-box__label">Advance congestion warning</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-box__value" data-count="34" data-suffix="%">0</div>
+              <div class="stat-box__label">Traffic rerouted in tests</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ACCESSIBILITY
+       ============================================================ -->
+  <div class="scan-line-divider"></div>
+  <section class="section" id="accessibility">
+    <div class="pulse-line" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-header reveal" style="max-width: 780px;">
+        <span class="label label--green">
+          <span aria-hidden="true">◈</span> Module 03
+        </span>
+        <h2 class="heading-section">Accessibility</h2>
+        <p class="text-body">
+          The World Cup belongs to every fan. The Nexus accessibility layer isn't an add-on — it's a core module
+          delivering GenAI-powered audio descriptions, sign-language avatar assistance, and adaptive wayfinding that
+          treats accessible routing as a first-class navigation mode, not a fallback.
+        </p>
+      </div>
+
+      <div class="accessibility__cards">
+        <div class="card accessibility__card card--hover-reveal reveal reveal-delay-1">
+          <div class="card__icon card__icon--green" aria-hidden="true">🔊</div>
+          <h3 class="card__title">GenAI Audio Descriptions</h3>
+          <p class="card__text">
+            Real-time match narration generated from multi-camera video feeds with &lt;200ms latency.
+          </p>
+          <div class="card__reveal-hint">Hover to expand <span>↓</span></div>
+          <div class="card__detail">
+            <p class="card__text">Not generic commentary — Nexus describes spatial positioning, player movement, crowd
+              reactions, and set-piece formations specifically for visually impaired fans. Available via in-stadium
+              headset, the Nexus app, or venue PA accessibility channels across all 11 stadiums.</p>
+            <button class="accessibility__demo-btn" data-demo="audio">▶ Try Demo</button>
+          </div>
+        </div>
+        <div class="card accessibility__card card--hover-reveal reveal reveal-delay-2">
+          <div class="card__icon card__icon--blue" aria-hidden="true">🤟</div>
+          <h3 class="card__title">Sign-Language Avatar</h3>
+          <p class="card__text">
+            A GenAI-driven 3D avatar provides real-time sign language interpretation (ASL, LSM, LSQ).
+          </p>
+          <div class="card__reveal-hint">Hover to expand <span>↓</span></div>
+          <div class="card__detail">
+            <p class="card__text">For PA announcements, emergency instructions, and match commentary. Rendered on
+              personal devices or stadium kiosk screens at 30fps with facial expression mapping for grammatical markers
+              — certified against WFD signing standards.</p>
+            <button class="accessibility__demo-btn" data-demo="sign">▶ Try Demo</button>
+          </div>
+        </div>
+        <div class="card accessibility__card card--hover-reveal reveal reveal-delay-3">
+          <div class="card__icon card__icon--gold" aria-hidden="true">♿</div>
+          <h3 class="card__title">Adaptive Wayfinding</h3>
+          <p class="card__text">
+            Wheelchair-accessible routes account for ramp locations and elevator wait times.
+          </p>
+          <div class="card__reveal-hint">Hover to expand <span>↓</span></div>
+          <div class="card__detail">
+            <p class="card__text">Sensory-friendly paths avoid high-decibel concourse zones for fans with autism or
+              sensory processing needs. Companion seating is automatically located adjacent, and service animal relief
+              areas are included in every route.</p>
+            <button class="accessibility__demo-btn" data-demo="wayfinding">▶ Try Demo</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="accessibility__standards reveal reveal-delay-4">
+        <div class="accessibility__standard">
+          <div class="accessibility__standard-name">WCAG 2.2 AA</div>
+          <div class="accessibility__standard-desc">Full compliance, all Nexus interfaces</div>
+        </div>
+        <div class="accessibility__standard">
+          <div class="accessibility__standard-name">ISO 21542</div>
+          <div class="accessibility__standard-desc">Accessible built environment standards</div>
+        </div>
+        <div class="accessibility__standard">
+          <div class="accessibility__standard-name">ADA / AODA / LGD</div>
+          <div class="accessibility__standard-desc">US, Canadian &amp; Mexican accessibility law</div>
+        </div>
+        <div class="accessibility__standard">
+          <div class="accessibility__standard-name">WFD Standards</div>
+          <div class="accessibility__standard-desc">Sign language quality certification</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TRANSPORTATION
+       ============================================================ -->
+  <div class="scan-line-divider"></div>
+  <section class="section" id="transport">
+    <div class="pulse-line pulse-line--blue" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label label--blue">
+          <span aria-hidden="true">◈</span> Module 04
+        </span>
+        <h2 class="heading-section">Dynamic "Living Tickets"</h2>
+        <p class="text-body">
+          Featuring AI-powered smart transit routing, Living Tickets adapt to real-time shuttle and transit demand
+          across all 16 host cities — integrating with NJ Transit, Dallas DART, Mexico City's STC Metro, Toronto TTC,
+          and 12 other transit systems.
+        </p>
+      </div>
+
+      <div class="transport__grid">
+        <div class="transport__visual reveal">
+          <!-- NJ Transit -->
+          <div class="transport__line">
+            <div class="transport__line-badge" style="background:var(--color-blue-dim);color:var(--color-blue);">NJT
+            </div>
+            <div class="transport__line-info">
+              <div class="transport__line-name">NJ Transit — Meadowlands Line</div>
+              <div class="transport__line-route">Secaucus Junction → MetLife Stadium</div>
+              <div class="transport__line-bar">
+                <div class="transport__line-bar-fill" style="width:0%;background:var(--color-blue);" data-width="87%">
+                </div>
+              </div>
+            </div>
+            <div class="transport__line-demand" style="color:var(--color-gold);background:var(--color-gold-dim);">87%
+              Cap.</div>
+          </div>
+          <!-- Dallas DART -->
+          <div class="transport__line">
+            <div class="transport__line-badge" style="background:var(--color-green-dim);color:var(--color-green);">DRT
+            </div>
+            <div class="transport__line-info">
+              <div class="transport__line-name">Dallas DART — Orange Line</div>
+              <div class="transport__line-route">Downtown Dallas → AT&T Stadium Shuttle</div>
+              <div class="transport__line-bar">
+                <div class="transport__line-bar-fill" style="width:0%;background:var(--color-green);" data-width="62%">
+                </div>
+              </div>
+            </div>
+            <div class="transport__line-demand" style="color:var(--color-green);background:var(--color-green-dim);">62%
+              Cap.</div>
+          </div>
+          <!-- Mexico City Metro -->
+          <div class="transport__line">
+            <div class="transport__line-badge" style="background:var(--color-gold-dim);color:var(--color-gold);">STC
+            </div>
+            <div class="transport__line-info">
+              <div class="transport__line-name">STC Metro — Línea 2</div>
+              <div class="transport__line-route">Zócalo → Estadio Azteca (Tasqueña transfer)</div>
+              <div class="transport__line-bar">
+                <div class="transport__line-bar-fill" style="width:0%;background:var(--color-gold);" data-width="91%">
+                </div>
+              </div>
+            </div>
+            <div class="transport__line-demand" style="color:var(--color-red);background:var(--color-red-dim);">91% Cap.
+            </div>
+          </div>
+          <!-- Toronto TTC -->
+          <div class="transport__line">
+            <div class="transport__line-badge" style="background:rgba(156,39,176,0.15);color:#CE93D8;">TTC</div>
+            <div class="transport__line-info">
+              <div class="transport__line-name">Toronto TTC — Line 2 + Shuttle</div>
+              <div class="transport__line-route">Bloor-Yonge → BMO Field Express</div>
+              <div class="transport__line-bar">
+                <div class="transport__line-bar-fill" style="width:0%;background:#CE93D8;" data-width="54%"></div>
+              </div>
+            </div>
+            <div class="transport__line-demand" style="color:var(--color-green);background:var(--color-green-dim);">54%
+              Cap.</div>
+          </div>
+        </div>
+        <div>
+          <div class="card reveal reveal-delay-1">
+            <div class="card__icon card__icon--blue" aria-hidden="true">🚌</div>
+            <h3 class="card__title">Demand-Predictive Scheduling</h3>
+            <p class="card__text">
+              Nexus forecasts passenger demand per route in 15-minute intervals, starting 6 hours pre-kickoff. When
+              predicted loads exceed 75% capacity, it signals partner transit agencies to deploy additional vehicles —
+              adding shuttle runs, extending metro service hours, or opening overflow parking lot routes automatically.
+            </p>
+          </div>
+          <div class="card reveal reveal-delay-2" style="margin-top:var(--space-6)">
+            <div class="card__icon card__icon--green" aria-hidden="true">📡</div>
+            <h3 class="card__title">Post-Match Surge Orchestration</h3>
+            <p class="card__text">
+              The hardest 90 minutes in transit aren't during the match — they're after the final whistle. Nexus
+              staggers exit flows by section, coordinates with rideshare geofences, and sequences shuttle departures to
+              prevent the 38-minute average wait that plagued previous tournaments. In simulation: average post-match
+              transit wait reduced to 11 minutes.
+            </p>
+          </div>
+          <div class="transport__stats reveal reveal-delay-3">
+            <div class="stat-box">
+              <div class="stat-box__value" data-count="94" data-suffix="%">0</div>
+              <div class="stat-box__label">Surge prediction accuracy</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-box__value" data-count="11" data-suffix=" min">0</div>
+              <div class="stat-box__label">Avg post-match transit wait</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SUSTAINABILITY
+       ============================================================ -->
+  <div class="scan-line-divider"></div>
+  <section class="section" id="sustainability">
+    <div class="pulse-line" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-header reveal" style="text-align:center; max-width:none;">
+        <span class="label label--green" style="margin:0 auto var(--space-4);">
+          <span aria-hidden="true">◈</span> Module 05
+        </span>
+        <h2 class="heading-section" style="text-align:center;">Sustainability</h2>
+        <p class="text-body" style="margin:var(--space-2) auto 0; text-align:center;">
+          GenAI-optimized resource management across all venues — Nexus models energy consumption, waste generation, and
+          water usage in real time, adjusting HVAC schedules, lighting zones, and vendor supply orders to minimize
+          environmental impact without compromising fan experience.
+        </p>
+      </div>
+
+      <div class="sustainability__metrics">
+        <div class="sustainability__metric reveal reveal-delay-1">
+          <div class="sustainability__ring" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <circle class="ring-bg" cx="60" cy="60" r="54" />
+              <circle class="ring-fill" cx="60" cy="60" r="54" stroke="var(--color-green)" stroke-dashoffset="339.292"
+                data-target="234" />
+            </svg>
+            <span class="sustainability__ring-value">31%</span>
+          </div>
+          <h3 class="sustainability__metric-title">Energy Reduction</h3>
+          <p class="sustainability__metric-desc">
+            AI-managed HVAC and lighting schedules cut energy consumption by 31% vs. static presets — adjusting
+            zone-by-zone based on occupancy, weather, and match phase.
+          </p>
+        </div>
+        <div class="sustainability__metric reveal reveal-delay-2">
+          <div class="sustainability__ring" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <circle class="ring-bg" cx="60" cy="60" r="54" />
+              <circle class="ring-fill" cx="60" cy="60" r="54" stroke="var(--color-blue)" stroke-dashoffset="339.292"
+                data-target="135" />
+            </svg>
+            <span class="sustainability__ring-value">2,400t</span>
+          </div>
+          <h3 class="sustainability__metric-title">CO₂ Avoided</h3>
+          <p class="sustainability__metric-desc">
+            Projected 2,400 metric tons of CO₂ avoided through optimized transit coordination, energy management, and
+            reduced food waste across the tournament.
+          </p>
+        </div>
+        <div class="sustainability__metric reveal reveal-delay-3">
+          <div class="sustainability__ring" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <circle class="ring-bg" cx="60" cy="60" r="54" />
+              <circle class="ring-fill" cx="60" cy="60" r="54" stroke="var(--color-gold)" stroke-dashoffset="339.292"
+                data-target="47" />
+            </svg>
+            <span class="sustainability__ring-value">87%</span>
+          </div>
+          <h3 class="sustainability__metric-title">Waste Diversion</h3>
+          <p class="sustainability__metric-desc">
+            Smart waste routing directs recyclables and compostables with 87% diversion rate — AI-vision sorting at
+            collection points identifies contamination in real time.
+          </p>
+        </div>
+        <div class="sustainability__metric reveal reveal-delay-4">
+          <div class="sustainability__ring" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <circle class="ring-bg" cx="60" cy="60" r="54" />
+              <circle class="ring-fill" cx="60" cy="60" r="54" stroke="#CE93D8" stroke-dashoffset="339.292"
+                data-target="170" />
+            </svg>
+            <span class="sustainability__ring-value">22%</span>
+          </div>
+          <h3 class="sustainability__metric-title">Water Savings</h3>
+          <p class="sustainability__metric-desc">
+            Predictive fixture management and demand-based pressure modulation reduce water usage by 22% per match day —
+            18M gallons saved across all venues.
+          </p>
+        </div>
+      </div>
+
+      <div class="sustainability__note reveal">
+        Projections based on generative simulation modeling across 104 matches at 11 venues, validated against FIFA
+        Green Goal 2030 framework and ISO 20121 event sustainability benchmarks.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MULTILINGUAL ASSISTANCE (Interactive Demo)
+       ============================================================ -->
+  <div class="scan-line-divider"></div>
+  <section class="section" id="multilingual">
+    <div class="pulse-line pulse-line--gold" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label label--gold">
+          <span aria-hidden="true">◈</span> Module 06 — Interactive Demo
+        </span>
+        <h2 class="heading-section">AI Copilot Assistance</h2>
+        <p class="text-body">
+          Live 24/7 fan assistance and translation for fans and volunteers — handling 37+ languages, regional dialects,
+          code-switching, and football-specific terminology with 97.3% accuracy. Try the live demo below.
+        </p>
+      </div>
+
+      <div class="chat__container">
+        <div class="chat__demo reveal" role="region" aria-label="Multilingual chat translation demo">
+          <div class="chat__demo-header">
+            <div class="chat__demo-title">
+              <span class="hero__badge-dot" aria-hidden="true" style="width:6px;height:6px;"></span>
+              Nexus AI Copilot — Live
+            </div>
+            <div style="display:flex;gap:var(--space-2);">
+              <span class="chat__demo-lang" style="background:var(--color-blue-dim);color:var(--color-blue);">EN</span>
+              <span class="chat__demo-lang"
+                style="background:var(--color-green-dim);color:var(--color-green);">ES</span>
+              <span class="chat__demo-lang" style="background:var(--color-gold-dim);color:var(--color-gold);">AR</span>
+            </div>
+          </div>
+          <div class="chat__pipeline" id="chat-pipeline" aria-hidden="true">
+            <!-- Pipeline steps injected by JS -->
+          </div>
+          <div class="chat__columns">
+            <div class="chat__column" id="chat-col-en">
+              <div class="chat__column-header">
+                <span style="font-size:14px;" aria-hidden="true">🇺🇸</span> English
+              </div>
+            </div>
+            <div class="chat__column" id="chat-col-es">
+              <div class="chat__column-header">
+                <span style="font-size:14px;" aria-hidden="true">🇲🇽</span> Español
+              </div>
+            </div>
+            <div class="chat__column" id="chat-col-ar">
+              <div class="chat__column-header" style="direction:rtl;">
+                <span style="font-size:14px;" aria-hidden="true">🇸🇦</span> العربية
+              </div>
+            </div>
+          </div>
+          <div class="chat__quick-prompts" aria-label="Quick prompt suggestions">
+            <button class="chat__quick-prompt" data-prompt="Where is Gate B?">Where is Gate B?</button>
+            <button class="chat__quick-prompt" data-prompt="When does the match start?">When does the match
+              start?</button>
+            <button class="chat__quick-prompt" data-prompt="I need wheelchair assistance">I need wheelchair
+              assistance</button>
+            <button class="chat__quick-prompt" data-prompt="Where can I find halal food?">Where can I find halal
+              food?</button>
+          </div>
+          <div class="chat__input-area">
+            <input type="text" class="chat__input" id="chat-input" placeholder="Type a message in English..."
+              aria-label="Type a message to translate" maxlength="200">
+            <button class="chat__send-btn" id="chat-send" aria-label="Send message">Send</button>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div class="card" style="margin-bottom:var(--space-6);">
+            <div class="card__icon card__icon--gold" aria-hidden="true">🌐</div>
+            <h3 class="card__title">37+ Languages, Zero Delay</h3>
+            <p class="card__text">
+              The Nexus translation engine processes fan queries in under 180ms — fast enough for real-time
+              conversation. It handles code-switching (e.g., Spanglish), football-specific jargon ("offside trap," "área
+              chica"), and regional dialect variations (Latin American vs. Castilian Spanish, Gulf vs. Levantine
+              Arabic).
+            </p>
+          </div>
+          <div class="card">
+            <div class="card__icon card__icon--blue" aria-hidden="true">🎙️</div>
+            <h3 class="card__title">Volunteer Voice Bridge</h3>
+            <p class="card__text">
+              Stadium volunteers wear Nexus-connected earpieces that provide real-time spoken translation. A volunteer
+              speaking English can assist a fan speaking Mandarin with no shared language — Nexus bridges the
+              conversation bidirectionally with natural-sounding speech synthesis, maintaining context across multi-turn
+              exchanges.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OPERATIONAL INTELLIGENCE (Interactive Demo)
+       ============================================================ -->
+  <div class="scan-line-divider"></div>
+  <section class="section" id="ops">
+    <div class="pulse-line pulse-line--blue" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-header reveal" style="text-align:center;max-width:none;">
+        <span class="label label--blue">
+          <span aria-hidden="true">◈</span> Module 07 — Interactive Demo
+        </span>
+        <h2 class="heading-section" style="text-align:center;">The Nexus Dashboard<br>&amp; Real-Time Operational
+          Analytics</h2>
+        <p class="text-body" style="margin:var(--space-2) auto 0;text-align:center;">
+          Featuring Secure Role-Based Access Control (RBAC), this command-center dashboard adapts for organizers, venue
+          staff, and coordinators — providing real-time operational analytics, smart alerts, and a robust field staff
+          task dispatch system.
+        </p>
+      </div>
+
+      <div class="dashboard__container reveal">
+        <div class="dashboard__toggle-bar" role="tablist" aria-label="Dashboard view selector">
+          <button class="dashboard__toggle-btn active" data-view="fan" role="tab" aria-selected="true" id="tab-fan">
+            👤 Fan View
+          </button>
+          <button class="dashboard__toggle-btn" data-view="volunteer" role="tab" aria-selected="false"
+            id="tab-volunteer">
+            🤝 Volunteer View
+          </button>
+          <button class="dashboard__toggle-btn" data-view="staff" role="tab" aria-selected="false" id="tab-staff">
+            🦺 Staff View
+          </button>
+          <button class="dashboard__toggle-btn" data-view="organizer" role="tab" aria-selected="false"
+            id="tab-organizer">
+            🎯 Organizer View
+          </button>
+        </div>
+
+        <!-- FAN VIEW -->
+        <div class="dashboard__panel active" data-panel="fan" role="tabpanel" aria-labelledby="tab-fan" id="panel-fan">
+          <div class="dashboard__top-bar">
+            <div class="dashboard__view-title">
+              <span class="dashboard__status-dot" aria-hidden="true"></span>
+              MetLife Stadium — USA vs. Brazil · Live
+            </div>
+            <div style="font-size:var(--text-sm);color:var(--color-text-dim);">Section 214, Row G, Seat 12</div>
+          </div>
+          <div class="dashboard__cards">
+            <div class="dashboard__card">
+              <div class="dashboard__card-label">Match Status</div>
+              <div class="dashboard__card-value" style="font-size:var(--text-2xl);">2nd Half — 67'</div>
+              <div class="dashboard__card-change neutral">⚽ USA 1 – 2 Brazil</div>
+            </div>
+            <div class="dashboard__card">
+              <div class="dashboard__card-label">Nearest Restroom Wait</div>
+              <div class="dashboard__card-value">3 min</div>
+              <div class="dashboard__card-change positive">↓ 6 min less than Sec 216</div>
+            </div>
+            <div class="dashboard__card">
+              <div class="dashboard__card-label">Food Court Status</div>
+              <div class="dashboard__card-value" style="font-size:var(--text-2xl);">Level 2 Open</div>
+              <div class="dashboard__card-change positive">~4 min walk, 2 min queue</div>
+            </div>
+          </div>
+          <div class="dashboard__alerts">
+            <div class="dashboard__alerts-title">
+              <span class="dashboard__status-dot" aria-hidden="true"
+                style="background:var(--color-blue);box-shadow:0 0 8px var(--color-blue-glow);"></span>
+              AI Suggestions for You
+            </div>
+            <div class="dashboard__alert">
+              <div class="dashboard__alert-icon" style="background:var(--color-blue-dim);color:var(--color-blue);">🍔
+              </div>
+              <div class="dashboard__alert-content">
+                <div class="dashboard__alert-title">Beat the halftime rush</div>
+                <div class="dashboard__alert-desc">Concourse C food vendors have &lt;2 min wait right now. Halftime
+                  queue predictions show 14 min average in 8 minutes. Order ahead through Nexus to skip the line.</div>
+                <div class="dashboard__alert-action">Order ahead →</div>
+              </div>
+              <div class="dashboard__alert-time">Just now</div>
+            </div>
+            <div class="dashboard__alert">
+              <div class="dashboard__alert-icon" style="background:var(--color-green-dim);color:var(--color-green);">🚇
+              </div>
+              <div class="dashboard__alert-content">
+                <div class="dashboard__alert-title">Post-match transit: your plan is set</div>
+                <div class="dashboard__alert-desc">NJ Transit train to Secaucus at 22:47 (Gate E exit → 6 min walk).
+                  Leave via Ramp 4 to avoid the main concourse — estimated 8 min faster.</div>
+                <div class="dashboard__alert-action">View route →</div>
+              </div>
+              <div class="dashboard__alert-time">2 min ago</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VOLUNTEER VIEW -->
+        <div class="dashboard__panel" data-panel="volunteer" role="tabpanel" aria-labelledby="tab-volunteer"
+          id="panel-volunteer">
+          <div class="dashboard__top-bar">
+            <div class="dashboard__view-title">
+              <span class="dashboard__status-dot" aria-hidden="true"
+                style="background:var(--color-green);box-shadow:0 0 8px var(--color-green-glow);"></span>
+              Volunteer Hub — MetLife Stadium
+            </div>
+            <div style="font-size:var(--text-sm);color:var(--color-text-dim);">Gate A Plaza, Zone 2</div>
+          </div>
+          <div class="dashboard__cards">
+            <div class="dashboard__card">
+              <div class="dashboard__card-label">Current Task</div>
+              <div class="dashboard__card-value" style="font-size:var(--text-2xl);">Wayfinding Assist</div>
+              <div class="dashboard__card-change positive">Plaza flow steady</div>
+            </div>
+            <div class="dashboard__card">
+              <div class="dashboard__card-label">Fans Assisted (Shift)</div>
+              <div class="dashboard__card-value">142</div>
+              <div class="dashboard__card-change neutral">38 via AI translation</div>
+            </div>
+            <div class="dashboard__card">
+              <div class="dashboard__card-label">Next Break</div>
+              <div class="dashboard__card-value">18:45</div>
+              <div class="dashboard__card-change positive">In 22 mins · Vol Lounge C</div>
+            </div>
+          </div>
+          <div class="dashboard__alerts">
+            <div class="dashboard__alerts-title">
+              <span class="dashboard__status-dot" aria-hidden="true"
+                style="background:var(--color-purple);box-shadow:0 0 8px var(--color-purple-glow);"></span>
+              Coordination Updates
+            </div>
+            <div class="dashboard__alert">
+              <div class="dashboard__alert-icon" style="background:var(--color-purple-dim);color:var(--color-purple);">
+                🌐</div>
+              <div class="dashboard__alert-content">
+                <div class="dashboard__alert-title">Translation request nearby</div>
+                <div class="dashboard__alert-desc">Fan at Gate A info desk requested Mandarin assistance. Please
+                  activate your Nexus earpiece and head to Desk 2 to bridge the conversation.</div>
+                <div class="dashboard__alert-action">Accept request →</div>
+              </div>
+              <div class="dashboard__alert-time">1 min ago</div>
+            </div>
+            <div class="dashboard__alert">
+              <div class="dashboard__alert-icon" style="background:var(--color-gold-dim);color:var(--color-gold);">🎒
+              </div>
+              <div class="dashboard__alert-content">
+                <div class="dashboard__alert-title">Prohibited items warning — Gate A</div>
+                <div class="dashboard__alert-desc">Security scanners show a 15% increase in oversized bags at Gate A.
+                  Please remind fans in line about the clear bag policy before they reach security.</div>
+                <div class="dashboard__alert-action">View policy diagram →</div>
+              </div>
+              <div class="dashboard__alert-time">5 min ago</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAFF VIEW -->
+        <div class="dashboard__panel" data-panel="staff" role="tabpanel" aria-labelledby="tab-staff" id="panel-staff">
+          <div class="dashboard__top-bar">
+            <div class="dashboard__view-title">
+              <span class="dashboard__status-dot" aria-hidden="true"></span>
+              Staff Console — MetLife Stadium · Shift B
+            </div>
+            <div style="font-size:var(--text-sm);color:var(--color-text-dim);">Concourse C, Zones 12–18</div>
+          </div>
+          <div class="dashboard__cards">
+            <div class="dashboard__card">
+              <div class="dashboard__card-label">Your Zone Occupancy</div>
+              <div class="dashboard__card-value">72%</div>
+              <div class="dashboard__card-change negative">↑ 8% in last 5 min</div>
+            </div>
+            <div class="dashboard__card">
+              <div class="dashboard__card-label">Open Incidents</div>
+              <div class="dashboard__card-value">3</div>
+              <div class="dashboard__card-change neutral">1 medical, 1 lost child, 1 spill</div>
+            </div>
+            <div class="dashboard__card">
+              <div class="dashboard__card-label">Fan Queries (last 10 min)</div>
+              <div class="dashboard__card-value">47</div>
+              <div class="dashboard__card-change positive">91% resolved by Nexus AI</div>
+            </div>
+          </div>
+          <div class="dashboard__alerts">
+            <div class="dashboard__alerts-title">
+              <span class="dashboard__status-dot" aria-hidden="true"
+                style="background:var(--color-gold);box-shadow:0 0 8px var(--color-gold-glow);"></span>
+              Smart Alerts & Task Dispatch
+            </div>
+            <div class="dashboard__alert">
+              <div class="dashboard__alert-icon" style="background:var(--color-red-dim);color:var(--color-red);">⚠️
+              </div>
+              <div class="dashboard__alert-content">
+                <div class="dashboard__alert-title">Medical: Fan in Section 215, Row M</div>
+                <div class="dashboard__alert-desc">Fan reported dizziness via Nexus app. Nearest first-aid station:
+                  Concourse C-14 (40m from your position). EMT unit dispatched — ETA 3 min. Please proceed to section
+                  entry to guide EMT.</div>
+                <div class="dashboard__alert-action">Acknowledge &amp; navigate →</div>
+              </div>
+              <div class="dashboard__alert-time">45 sec ago</div>
+            </div>
+            <div class="dashboard__alert">
+              <div class="dashboard__alert-icon" style="background:var(--color-gold-dim);color:var(--color-gold);">👶
+              </div>
+              <div class="dashboard__alert-content">
+                <div class="dashboard__alert-title">Lost child reported — Zone 14</div>
+                <div class="dashboard__alert-desc">7-year-old male, red Brazil jersey, last seen near Concourse C
+                  restrooms at 20:34. Parent is at Guest Services Desk 3. Photo shared to all Zone 12-18 staff devices.
+                </div>
+                <div class="dashboard__alert-action">View photo &amp; details →</div>
+              </div>
+              <div class="dashboard__alert-time">4 min ago</div>
+            </div>
+            <div class="dashboard__alert">
+              <div class="dashboard__alert-icon" style="background:var(--color-blue-dim);color:var(--color-blue);">🧹
+              </div>
+              <div class="dashboard__alert-content">
+                <div class="dashboard__alert-title">Spill cleanup — Concourse C-16</div>
+                <div class="dashboard__alert-desc">Beverage spill reported by AI vision camera at 20:31. Cleaning crew
+                  dispatched. Wet floor signage auto-deployed to digital displays in the area. No injuries reported.
+                </div>
+                <div class="dashboard__alert-action">Mark resolved →</div>
+              </div>
+              <div class="dashboard__alert-time">6 min ago</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ORGANIZER VIEW -->
+        <div class="dashboard__panel" data-panel="organizer" role="tabpanel" aria-labelledby="tab-organizer"
+          id="panel-organizer">
+          <div class="dashboard__top-bar">
+            <div class="dashboard__view-title">
+              <span class="dashboard__status-dot" aria-hidden="true"
+                style="background:var(--color-gold);box-shadow:0 0 8px var(--color-gold-glow);"></span>
+              Tournament Operations Center — All Venues
+            </div>
+            <div style="font-size:var(--text-sm);color:var(--color-text-dim);">4 matches live · 6 venues active</div>
+          </div>
+          <div class="dashboard__cards">
+            <div class="dashboard__card">
+              <div class="dashboard__card-label">Total Fans In-Stadium</div>
+              <div class="dashboard__card-value">312,847</div>
+              <div class="dashboard__card-change positive">All venues within capacity</div>
+            </div>
+            <div class="dashboard__card">
+              <div class="dashboard__card-label">Active Incidents</div>
+              <div class="dashboard__card-value">14</div>
+              <div class="dashboard__card-change neutral">12 minor · 2 moderate · 0 critical</div>
+            </div>
+            <div class="dashboard__card">
+              <div class="dashboard__card-label">AI Resolution Rate</div>
+              <div class="dashboard__card-value">89%</div>
+              <div class="dashboard__card-change positive">↑ 3% vs. yesterday's matches</div>
+            </div>
+          </div>
+          <div class="dashboard__alerts">
+            <div class="dashboard__alerts-title">
+              <span class="dashboard__status-dot" aria-hidden="true"
+                style="background:var(--color-gold);box-shadow:0 0 8px var(--color-gold-glow);"></span>
+              Cross-Venue Intelligence
+            </div>
+            <div class="dashboard__alert">
+              <div class="dashboard__alert-icon" style="background:var(--color-gold-dim);color:var(--color-gold);">🌡️
+              </div>
+              <div class="dashboard__alert-content">
+                <div class="dashboard__alert-title">Heat advisory — AT&T Stadium, SoFi Stadium</div>
+                <div class="dashboard__alert-desc">Ambient temperature forecast: 38°C at Arlington (17:00 CDT), 34°C at
+                  Inglewood (14:00 PDT). Nexus has pre-activated enhanced HVAC cooling at both venues, deployed
+                  additional water stations, and pushed hydration reminders to 94,000 ticketed fans.</div>
+                <div class="dashboard__alert-action">View response plan →</div>
+              </div>
+              <div class="dashboard__alert-time">12 min ago</div>
+            </div>
+            <div class="dashboard__alert">
+              <div class="dashboard__alert-icon" style="background:var(--color-green-dim);color:var(--color-green);">📊
+              </div>
+              <div class="dashboard__alert-content">
+                <div class="dashboard__alert-title">Post-match transit coordination — MetLife</div>
+                <div class="dashboard__alert-desc">USA vs. Brazil final whistle estimated at 22:38 EDT. NJ Transit has
+                  staged 14 additional trains. Nexus is pre-distributing exit recommendations to 82,500 fans: 34% routed
+                  to east gates, 28% west, 22% north parking, 16% south rideshare zone.</div>
+                <div class="dashboard__alert-action">View distribution model →</div>
+              </div>
+              <div class="dashboard__alert-time">18 min ago</div>
+            </div>
+            <div class="dashboard__alert">
+              <div class="dashboard__alert-icon" style="background:var(--color-blue-dim);color:var(--color-blue);">🔋
+              </div>
+              <div class="dashboard__alert-content">
+                <div class="dashboard__alert-title">Energy optimization summary — Today</div>
+                <div class="dashboard__alert-desc">Tournament-wide energy savings today: 34.2 MWh (29% below baseline).
+                  Top performer: Lumen Field (Seattle) at 38% reduction due to mild conditions enabling natural
+                  ventilation. Recommendation: replicate Lumen Field HVAC strategy at BMO Field tomorrow (similar
+                  forecast).</div>
+                <div class="dashboard__alert-action">Apply recommendation →</div>
+              </div>
+              <div class="dashboard__alert-time">31 min ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       IMPACT / CLOSING
+       ============================================================ -->
+  <div class="scan-line-divider"></div>
+  <section class="section" id="impact">
+    <div class="pulse-line" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-header reveal" style="text-align:center;max-width:none;">
+        <span class="label label--green">
+          <span aria-hidden="true">◈</span> Impact
+        </span>
+        <h2 class="heading-section" style="text-align:center;">Before Nexus vs. With Nexus</h2>
+        <p class="text-body" style="margin:var(--space-2) auto 0;text-align:center;">
+          Projected outcomes based on generative simulation across 104 matches, 11 stadiums, and 5.5 million fans —
+          validated against historical FIFA tournament operations data.
+        </p>
+        <div style="text-align:center;margin-top:var(--space-6);">
+          <button class="impact__toggle-btn" id="impact-toggle" aria-pressed="false">Show Impact Only</button>
+        </div>
+      </div>
+
+      <div class="impact__slider-container reveal">
+        <div class="impact__slider-labels">
+          <div class="impact__slider-label impact__slider-label--before">Before Nexus</div>
+          <div class="impact__slider-label impact__slider-label--after">With Nexus</div>
+        </div>
+
+        <div class="impact__slider-track">
+          <input type="range" min="0" max="100" value="100" class="impact__slider-input" id="impact-slider"
+            aria-label="Drag to compare impact metrics before and after Nexus">
+        </div>
+        <div class="impact__slider-hint">← Drag the handle to compare Before vs. With Nexus →</div>
+
+        <div class="impact__metrics-grid">
+          <div class="impact__metric-card">
+            <div class="impact__metric-label">Time to Seat</div>
+            <div class="impact__metric-value" id="metric-seat" data-before="22" data-after="9" data-suffix=" min">9 min
+            </div>
+            <div class="impact__metric-bar">
+              <div class="impact__metric-bar-fill" style="width: 41%;"></div>
+            </div>
+          </div>
+          <div class="impact__metric-card">
+            <div class="impact__metric-label">Transit Wait</div>
+            <div class="impact__metric-value" id="metric-transit" data-before="38" data-after="11" data-suffix=" min">11
+              min</div>
+            <div class="impact__metric-bar">
+              <div class="impact__metric-bar-fill" style="width: 29%;"></div>
+            </div>
+          </div>
+          <div class="impact__metric-card">
+            <div class="impact__metric-label">Incident Response</div>
+            <div class="impact__metric-value" id="metric-response" data-before="14" data-after="2" data-suffix=" min">2
+              min</div>
+            <div class="impact__metric-bar">
+              <div class="impact__metric-bar-fill" style="width: 14%;"></div>
+            </div>
+          </div>
+          <div class="impact__metric-card">
+            <div class="impact__metric-label">Waste Diversion</div>
+            <div class="impact__metric-value" id="metric-waste" data-before="41" data-after="87" data-suffix="%">87%
+            </div>
+            <div class="impact__metric-bar">
+              <div class="impact__metric-bar-fill" style="width: 87%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="impact__summary impact__summary--visible" id="impact-summary">
+          <div class="impact__summary-inner">
+            <span class="impact__summary-icon" aria-hidden="true">⚡</span>
+            <span>Nexus delivers an average <strong style="color:var(--color-green);" id="impact-avg-improvement">52%
+                improvement</strong> across all key operational metrics — turning reactive operations into predictive
+              intelligence.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="impact__closing reveal">
+        <h2 class="impact__closing-title">
+          The World Cup has never operated<br>
+          <span class="gradient-text">at this resolution.</span>
+        </h2>
+        <p class="impact__closing-text">
+          Nexus doesn't replace the people who run the tournament — it gives every volunteer eyes that see around
+          corners, every organizer decisions backed by 5.5 million data points updating in real time, and every fan an
+          experience that feels personal in a crowd of 80,000. This is what stadium operations look like when a single
+          AI understands the whole picture — from the HVAC system cycling down in an empty concourse to the family in
+          Section 322 who need a wheelchair-accessible route to halal food before the second half starts.
+        </p>
+        <p class="impact__closing-text"
+          style="margin-top:var(--space-6);color:var(--color-text-heading);font-weight:500;">
+          One intelligence. Sixteen cities. Every fan accounted for.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__logo">
+          <span class="nav__logo-dot" aria-hidden="true"></span>
+          NEXUS
+        </div>
+        <div class="footer__text">
+          GenAI Operations Platform — FIFA World Cup 2026™
+        </div>
+        <div class="footer__text">
+          Concept Prototype · Built for competitive evaluation
+        </div>
+        <div class="footer__cities">
+          <div class="footer__city">Vancouver</div>
+          <div class="footer__city">Seattle</div>
+          <div class="footer__city">San Francisco</div>
+          <div class="footer__city">Los Angeles</div>
+          <div class="footer__city">Guadalajara</div>
+          <div class="footer__city">Mexico City</div>
+          <div class="footer__city">Monterrey</div>
+          <div class="footer__city">Houston</div>
+          <div class="footer__city">Dallas</div>
+          <div class="footer__city">Kansas City</div>
+          <div class="footer__city">Atlanta</div>
+          <div class="footer__city">Miami</div>
+          <div class="footer__city">Toronto</div>
+          <div class="footer__city">Boston</div>
+          <div class="footer__city">Philadelphia</div>
+          <div class="footer__city">New York/NJ</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Scripts -->
+  <script src="js/utils.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/heatmap.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/interactions.js"></script>
+</body>
+
+</html>
